@@ -55,7 +55,6 @@ export default function Signup() {
           onChange={e => setEmail(e.target.value)}
           required
         />
-
         <Input
           type="password"
           placeholder="password"
@@ -63,8 +62,9 @@ export default function Signup() {
           onChange={e => setPassword(e.target.value)}
           required
         />
-
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit" primary>
+          Sign Up
+        </Button>
       </Form>
     </Fieldset>
   )

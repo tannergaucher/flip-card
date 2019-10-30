@@ -17,29 +17,9 @@ export default function Header() {
   return (
     <StyledHeader>
       <Link to="/">
-        <h3>Minimal Serverless App</h3>
+        <h3>FlipCard</h3>
       </Link>
-      {isAuth ? <Logout /> : <AuthLinks />}
+      {isAuth && <Logout />}
     </StyledHeader>
-  )
-}
-
-const StyledAuthLinks = styled.nav`
-  display: flex;
-  .nav-link {
-    margin-left: 1rem;
-  }
-`
-
-function AuthLinks() {
-  return (
-    <StyledAuthLinks>
-      <Link to="/login">
-        <h3 className="nav-link">Login</h3>
-      </Link>
-      <Link to="/signup">
-        <h3 className="nav-link">Signup</h3>
-      </Link>
-    </StyledAuthLinks>
   )
 }

@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background: var(--brand);
-  color: white;
+  padding: 0.5rem 1rem;
+  border: 2px solid black;
+  border-radius: var(--radius);
   font-family: var(--sans);
   font-size: var(--font-size);
-  padding: 1rem 0.5rem;
+  background: ${props => (props.primary ? 'black' : 'inherit')};
+  color: ${props => (props.primary ? 'white' : 'black')};
   text-transform: uppercase;
-  border: 2px solid var(--brand);
+  width: ${props => (props.fill ? '100%' : '')};
+  margin-bottom: 1rem;
 `
 
 export default Button

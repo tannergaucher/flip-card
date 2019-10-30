@@ -1,6 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { LoginPage, SignupPage, IndexPage } from '../pages'
+import {
+  LoginPage,
+  SignupPage,
+  IndexPage,
+  CardPage,
+  EditCardPage,
+} from '../pages'
 
 export default function Main() {
   return (
@@ -11,6 +17,12 @@ export default function Main() {
         </Route>
         <Route path="/signup">
           <SignupPage />
+        </Route>
+        <Route path="/card/:cardId">
+          <CardPage />
+        </Route>
+        <Route path="/edit/:cardId">
+          <EditCardPage />
         </Route>
         <Route path="/">
           <IndexPage />
