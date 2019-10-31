@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
@@ -21,8 +21,32 @@ const StyledCardPreview = styled.div`
 
 export default function CardPreview({ card }) {
   const [copied, setCopied] = useState(false)
-
   const history = useHistory()
+
+  const buttonEl = useRef(null)
+
+  useEffect(() => {
+    // add when mounted
+    document.addEventListener('mousedown', handleClick)
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+    }
+  }, [])
+
+  const handleClick = e => {
+    console.log(e.target)
+    console.log(buttonEl.current)
+
+    if (e.target === buttonEl.current) {
+      console.log(`INSIDE`)
+      setCopied(true)
+      navigator.clipboard.writeText(`http://foo.com/card/${card._id}`)
+    } else {
+      console.log(`outside`)
+      setCopied(false)
+    }
+  }
 
   return (
     <StyledCardPreview>
@@ -42,10 +66,9 @@ export default function CardPreview({ card }) {
         Edit Card
       </Button>
       <Button
-        onClick={() => {
-          navigator.clipboard.writeText(`http://foo.com/card/${card._id}`)
-          setCopied(true)
-          // listen for button unFocus, set copied false
+        ref={buttonEl}
+        onKeyDown={e => {
+          handleClick(e)
         }}
       >
         {copied ? 'Copied!' : 'Copy Link and Share'}
