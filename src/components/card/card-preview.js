@@ -26,24 +26,17 @@ export default function CardPreview({ card }) {
   const buttonEl = useRef(null)
 
   useEffect(() => {
-    // add when mounted
     document.addEventListener('mousedown', handleClick)
-    // return function to be called when unmounted
     return () => {
       document.removeEventListener('mousedown', handleClick)
     }
   }, [])
 
   const handleClick = e => {
-    console.log(e.target)
-    console.log(buttonEl.current)
-
     if (e.target === buttonEl.current) {
-      console.log(`INSIDE`)
       setCopied(true)
       navigator.clipboard.writeText(`http://foo.com/card/${card._id}`)
     } else {
-      console.log(`outside`)
       setCopied(false)
     }
   }
@@ -69,6 +62,10 @@ export default function CardPreview({ card }) {
         ref={buttonEl}
         onKeyDown={e => {
           handleClick(e)
+        }}
+        style={{
+          borderColor: copied ? `blue` : ``,
+          color: copied ? `blue` : ``,
         }}
       >
         {copied ? 'Copied!' : 'Copy Link and Share'}
