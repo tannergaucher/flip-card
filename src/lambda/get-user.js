@@ -23,7 +23,9 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 200,
-      body: error.toString(),
+      body: JSON.stringify({
+        error,
+      }),
     }
   }
 }
