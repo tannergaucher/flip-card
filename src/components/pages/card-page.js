@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import { StyledPage, Button } from '../styles'
+import { StyledPage } from '../styles'
 import { FlipCard } from '../card'
 import { useCard } from '../hooks'
 
@@ -13,16 +13,7 @@ export default function CardPage() {
     <StyledPage>
       {loading && `Loading card...`}
       {error && `Error!`}
-      {data && data.card && (
-        <>
-          <CopyPageLinkButton />
-          <FlipCard card={data.card} />
-        </>
-      )}
+      {data && data.card && <FlipCard card={data.card} />}
     </StyledPage>
   )
-}
-
-function CopyPageLinkButton() {
-  return <Button>Copy link and share with a friend!</Button>
 }

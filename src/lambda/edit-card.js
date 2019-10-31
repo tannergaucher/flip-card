@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { Card } = require('../models')
 const connectToDb = require('../connect-to-db')
 const { verify } = require('jsonwebtoken')
 
@@ -10,19 +10,31 @@ exports.handler = async (event, context) => {
     const req = JSON.parse(event.body)
     const verifiedToken = verify(req.token, process.env.REACT_APP_APP_SECRET)
     const { userId } = verifiedToken
-    const user = await User.findById(userId)
+
+    // TODO: CHECK THAT USER OWNS THAT CARD
+    const card = await Card.findById(req.cardId)
+
+    if (req.frontText) {
+      card.frontText = req.frontText
+    }
+
+    if (req.backText) {
+      card.backText = req.backText
+    }
+
+    card.save()
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         data: {
-          user,
+          card,
         },
       }),
     }
   } catch (error) {
     return {
-      statusCode: 200,
+      statusCode: 500,
       body: JSON.stringify({
         error,
       }),
