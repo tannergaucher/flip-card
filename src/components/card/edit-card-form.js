@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { Input, Form, Fieldset, Button } from '../styles'
+import { MyCardsContext } from '../context'
 
 export default function EditCardForm({ card }) {
   const [frontText, setFrontText] = useState('')
   const [backText, setBackText] = useState('')
+  const { data, setMyCards } = useContext(MyCardsContext)
+
+  const history = useHistory()
 
   return (
     <Fieldset>
       <Form
-        onSubmit={async () => {
+        onSubmit={async e => {
+          e.preventDefault()
+
           const token = localStorage.getItem('token')
           const res = await fetch(`/.netlify/functions/edit-card`, {
             method: 'POST',
@@ -19,14 +26,26 @@ export default function EditCardForm({ card }) {
             body: JSON.stringify({
               frontText,
               backText,
+              cardId: card._id,
               token,
             }),
           })
 
           if (res.ok) {
-            const { data } = res.json()
+            const {
+              data: { card },
+            } = await res.json()
+            // grab the card of that id from context and replace with with data.card
+            // immutable?
+            const foundIndex = data.cards.findIndex(
+              contextCard => contextCard._id === card._id
+            )
+            data.cards[foundIndex] = card
+            setMyCards(data)
+            history.push(`/`)
           } else {
-            const { error } = res.json()
+            const { error } = await res.json()
+            console.log(error)
           }
         }}
       >

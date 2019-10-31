@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
@@ -20,6 +20,8 @@ const StyledCardPreview = styled.div`
 `
 
 export default function CardPreview({ card }) {
+  const [copied, setCopied] = useState(false)
+
   const history = useHistory()
 
   return (
@@ -39,7 +41,15 @@ export default function CardPreview({ card }) {
       >
         Edit Card
       </Button>
-      <Button>Copy Link and Share</Button>
+      <Button
+        onClick={() => {
+          navigator.clipboard.writeText(`http://foo.com/card/${card._id}`)
+          setCopied(true)
+          // listen for button unFocus, set copied false
+        }}
+      >
+        {copied ? 'Copied!' : 'Copy Link and Share'}
+      </Button>
     </StyledCardPreview>
   )
 }
