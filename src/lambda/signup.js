@@ -9,12 +9,12 @@ export async function handler(event, context) {
   try {
     connectToDb()
     const req = JSON.parse(event.body)
-    const lowercaseEmail = req.email.toLowerCase()
+    const lowercaseUsername = req.username.toLowerCase()
     const salt = genSaltSync(10)
     const hashedPassword = hashSync(req.password, salt)
 
     const [existingUser] = await User.find({
-      email: req.email.toLowerCase(),
+      username: req.username.toLowerCase(),
     })
 
     if (existingUser) {
@@ -22,14 +22,14 @@ export async function handler(event, context) {
         statusCode: 401,
         body: JSON.stringify({
           error: {
-            message: `That email address already exists.`,
+            message: `That Username already exists :(`,
           },
         }),
       }
     }
 
     const user = await User.create({
-      email: lowercaseEmail,
+      username: lowercaseUsername,
       password: hashedPassword,
     })
 
