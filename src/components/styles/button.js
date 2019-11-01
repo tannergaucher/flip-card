@@ -9,7 +9,7 @@ const Button = styled.button`
   background: ${props => (props.primary ? 'black' : 'inherit')};
   color: ${props => (props.primary ? 'white' : 'black')};
   text-transform: uppercase;
-  width: ${props => (props.fill ? '100%' : '')};
+  width: ${props => (props.fill ? '-webkit-fill-available' : '')};
   margin-bottom: 1rem;
 `
 
