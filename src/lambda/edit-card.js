@@ -22,13 +22,13 @@ exports.handler = async (event, context) => {
       card.backText = req.backText
     }
 
-    card.save()
+    const updatedCard = await card.save()
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         data: {
-          card,
+          card: updatedCard,
         },
       }),
     }
