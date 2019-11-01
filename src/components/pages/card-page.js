@@ -9,6 +9,8 @@ export default function CardPage() {
   const { cardId } = useParams()
   const { loading, error, data } = useCard(cardId)
 
+  console.log(loading)
+
   return (
     <StyledPage>
       {loading && <h2>Loading card...</h2>}
