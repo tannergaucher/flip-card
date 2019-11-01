@@ -6,9 +6,9 @@ import { Button } from '../styles'
 
 const StyledCardPreview = styled.div`
   padding: 1rem;
-  background: #f5f5f5;
   margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--accent);
 
   .view-card-btn {
     margin-right: 1rem;
