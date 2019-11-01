@@ -60,7 +60,13 @@ export default function CreateCardForm() {
           onChange={e => setBackText(e.target.value)}
           required
         />
-        <Button type="submit" primary>
+        <Button
+          type="submit"
+          primary
+          style={{
+            background: loading ? 'grey' : '',
+          }}
+        >
           Create Card
         </Button>
       </Form>
