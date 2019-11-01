@@ -65,7 +65,13 @@ export default function Login() {
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <Button type="submit" primary>
+        <Button
+          type="submit"
+          primary
+          style={{
+            background: loading ? 'grey' : '',
+          }}
+        >
           Login
         </Button>
       </Form>

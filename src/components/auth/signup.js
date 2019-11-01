@@ -66,7 +66,13 @@ export default function Signup() {
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <Button type="submit" primary>
+        <Button
+          type="submit"
+          primary
+          style={{
+            background: loading ? 'grey' : '',
+          }}
+        >
           Sign Up
         </Button>
       </Form>
