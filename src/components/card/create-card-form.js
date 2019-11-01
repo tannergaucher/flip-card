@@ -6,11 +6,14 @@ import { MyCardsContext } from '../context'
 export default function CreateCardForm() {
   const [frontText, setFrontText] = useState('')
   const [backText, setBackText] = useState('')
+  const [loading, setLoading] = useState(false)
+
   const { data, setMyCards } = useContext(MyCardsContext)
 
   return (
     <Fieldset
       onSubmit={async e => {
+        setLoading(true)
         e.preventDefault()
         const token = localStorage.getItem('token')
         const res = await fetch(`/.netlify/functions/create-card`, {
@@ -36,9 +39,11 @@ export default function CreateCardForm() {
 
           setFrontText('')
           setBackText('')
+          setLoading(false)
         } else {
           const { error } = await res.json()
           console.log(error)
+          setLoading(false)
         }
       }}
     >
@@ -55,7 +60,13 @@ export default function CreateCardForm() {
           onChange={e => setBackText(e.target.value)}
           required
         />
-        <Button type="submit" primary>
+        <Button
+          type="submit"
+          primary
+          style={{
+            background: loading ? 'grey' : '',
+          }}
+        >
           Create Card
         </Button>
       </Form>

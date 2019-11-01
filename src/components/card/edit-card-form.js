@@ -7,6 +7,7 @@ import { MyCardsContext } from '../context'
 export default function EditCardForm({ card }) {
   const [frontText, setFrontText] = useState('')
   const [backText, setBackText] = useState('')
+  const [loading, setLoading] = useState(false)
   const { data, setMyCards } = useContext(MyCardsContext)
 
   const history = useHistory()
@@ -16,6 +17,7 @@ export default function EditCardForm({ card }) {
       <Form
         onSubmit={async e => {
           e.preventDefault()
+          setLoading(true)
 
           const token = localStorage.getItem('token')
           const res = await fetch(`/.netlify/functions/edit-card`, {
@@ -42,10 +44,12 @@ export default function EditCardForm({ card }) {
             )
             data.cards[foundIndex] = card
             setMyCards(data)
+            setLoading(false)
             history.push(`/`)
           } else {
             const { error } = await res.json()
             console.log(error)
+            setLoading(false)
           }
         }}
       >
@@ -59,7 +63,13 @@ export default function EditCardForm({ card }) {
           defaultValue={card.backText}
           onChange={e => setBackText(e.target.value)}
         />
-        <Button primary type="submit">
+        <Button
+          primary
+          type="submit"
+          style={{
+            background: loading ? 'grey' : '',
+          }}
+        >
           Save Changes
         </Button>
       </Form>
