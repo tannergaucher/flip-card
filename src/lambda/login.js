@@ -10,8 +10,9 @@ export async function handler(event, context) {
     connectToDb()
     const req = JSON.parse(event.body)
     const lowercaseUsername = req.username.toLowerCase()
+
     const [user] = await User.find({
-      lowercaseUsername,
+      username: lowercaseUsername,
     })
 
     if (!user) {
@@ -19,7 +20,7 @@ export async function handler(event, context) {
         statusCode: 401,
         body: JSON.stringify({
           error: {
-            message: `No user found for that Username!`,
+            message: `That username wasn't found!`,
           },
         }),
       }
@@ -32,7 +33,7 @@ export async function handler(event, context) {
         statusCode: 401,
         body: JSON.stringify({
           error: {
-            message: `Invalid Password`,
+            message: `Invalid Password!`,
           },
         }),
       }

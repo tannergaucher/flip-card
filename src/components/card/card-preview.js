@@ -30,8 +30,9 @@ export default function CardPreview({ card }) {
     return () => {
       document.removeEventListener('mousedown', handleClick)
     }
-  }, [])
+  }, [handleClick])
 
+  // TODO: FIX CONSOLE WARNING
   const handleClick = e => {
     if (e.target === buttonEl.current) {
       setCopied(true)
