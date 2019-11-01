@@ -5,6 +5,10 @@ const StyledPage = styled.div`
   margin: 5rem auto;
   padding: 0 1rem;
   min-height: 100vh;
+
+  .title-center {
+    text-align: center;
+  }
 `
 
 export default StyledPage

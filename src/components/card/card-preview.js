@@ -36,7 +36,9 @@ export default function CardPreview({ card }) {
   const handleClick = e => {
     if (e.target === buttonEl.current) {
       setCopied(true)
-      navigator.clipboard.writeText(`http://foo.com/card/${card._id}`)
+      navigator.clipboard.writeText(
+        `${process.env.REACT_APP_SITE_URL}/card/${card._id}`
+      )
     } else {
       setCopied(false)
     }

@@ -8,8 +8,10 @@ export default function MyCardsList() {
 
   return (
     <>
-      {loading && `Loading cards...`}
-      {error && `Error! ${error.message}`}
+      {loading && <h2>Loading cards...</h2>}
+      {error && (
+        <h2 style={{ color: `var(--warning)` }}>Error! ${error.message}</h2>
+      )}
       {data &&
         data.cards &&
         data.cards.map(card => <CardPreview key={card._id} card={card} />)}

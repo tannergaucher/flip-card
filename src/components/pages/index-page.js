@@ -29,7 +29,7 @@ const StyledNotAuthView = styled.div`
     margin-bottom: 1rem;
   }
 
-  .instructions {
+  .description {
     margin-bottom: 3rem;
   }
 `
@@ -39,8 +39,8 @@ function NotAuthedView() {
 
   return (
     <StyledNotAuthView>
-      <h1 className="welcome">Welcome to FlipCard!</h1>
-      <h2 className="instructions">Sign up or log in to create a card.</h2>
+      <h1 className="welcome">Welcome to FlipCard</h1>
+      <h2 className="description">Share funny things with friends. Ha ha!</h2>
       <Button fill primary onClick={() => history.push(`/login`)}>
         Log In
       </Button>

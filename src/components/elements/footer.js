@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
 export default function Footer() {
   return (
     <StyledFooter>
-      <h3>Minimal Serverless App</h3>
+      <h3>FlipCard</h3>
     </StyledFooter>
   )
 }

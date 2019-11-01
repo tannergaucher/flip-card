@@ -6,6 +6,7 @@ export default function UseCardHook(cardId) {
   const [error, setError] = useState('')
 
   useEffect(() => {
+    setLoading(true)
     async function fetchCard(cardId) {
       const res = await fetch(`/.netlify/functions/get-card`, {
         method: 'POST',

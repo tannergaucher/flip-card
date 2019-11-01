@@ -9,10 +9,12 @@ export default function CardPage() {
   const { cardId } = useParams()
   const { loading, error, data } = useCard(cardId)
 
+  console.log(loading)
+
   return (
     <StyledPage>
-      {loading && `Loading card...`}
-      {error && `Error!`}
+      {loading && <h2>Loading card...</h2>}
+      {error && <h2 style={{ color: `var(--warning)` }}>Error!</h2>}
       {data && data.card && <FlipCard card={data.card} />}
     </StyledPage>
   )
