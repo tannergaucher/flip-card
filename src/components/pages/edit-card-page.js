@@ -12,8 +12,10 @@ export default function EditCardPage() {
   return (
     <StyledPage>
       <h1>Edit Card</h1>
-      {loading && `Loading...`}
-      {error && `Error! ${error.message}`}
+      {loading && <h2>Loading...</h2>}
+      {error && (
+        <h2 style={{ color: `var(--warning)` }}>Error! {error.message}</h2>
+      )}
       {data && data.card && (
         <>
           <EditCardForm card={data.card} />
