@@ -9,6 +9,9 @@ const StyledCardPreview = styled.div`
   margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border: 2px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .view-card-btn,
   .edit-card-btn {
@@ -17,13 +20,17 @@ const StyledCardPreview = styled.div`
     color: grey;
   }
 
+  .all-btns {
+    margin-top: 1rem;
+  }
+
   @media (max-width: 600px) {
     .view-card-btn,
     .edit-card-btn {
       margin-right: 0;
     }
 
-    .preview-btns {
+    .view-edit-btns {
       display: flex;
       flex-direction: column;
     }
@@ -57,25 +64,31 @@ export default function CardPreview({ card }) {
 
   return (
     <StyledCardPreview>
-      <h2>{card.frontText}</h2>
-      <h2>{card.backText}</h2>
+      <div>
+        <h2>{card.frontText}</h2>
+        <h2>{card.backText}</h2>
+      </div>
 
-      <div className="preview-btns">
-        <Button
-          light
-          className="view-card-btn"
-          onClick={() => history.push(`/card/${card._id}`)}
-        >
-          View Card
-        </Button>
-        <Button
-          className="edit-card-btn"
-          onClick={() => history.push(`/edit/${card._id}`)}
-        >
-          Edit Card
-        </Button>
+      <div className="all-btns">
+        <div className="view-edit-btns">
+          <Button
+            className="edit-card-btn"
+            onClick={() => history.push(`/edit/${card._id}`)}
+          >
+            Edit Card
+          </Button>
+
+          <Button
+            light
+            className="view-card-btn"
+            onClick={() => history.push(`/card/${card._id}`)}
+          >
+            View Card
+          </Button>
+        </div>
         <Button
           ref={buttonEl}
+          fill
           onKeyDown={e => {
             handleClick(e)
           }}
@@ -84,7 +97,7 @@ export default function CardPreview({ card }) {
             color: copied ? `blue` : ``,
           }}
         >
-          {copied ? 'Copied!' : 'Copy and Share'}
+          {copied ? 'Copied!' : 'Copy Link'}
         </Button>
       </div>
     </StyledCardPreview>
