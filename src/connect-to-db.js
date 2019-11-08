@@ -1,5 +1,4 @@
 // https://docs.atlas.mongodb.com/best-practices-connecting-to-aws-lambda/
-
 const mongoose = require('mongoose')
 
 let cachedDb = null
