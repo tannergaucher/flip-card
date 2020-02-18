@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
-import { Fieldset, Form, Input, Button } from '../styles'
 import { MyCardsContext } from '../context'
 
 export default function CreateCardForm() {
@@ -11,7 +10,7 @@ export default function CreateCardForm() {
   const { data, setMyCards } = useContext(MyCardsContext)
 
   return (
-    <Fieldset
+    <fieldset
       onSubmit={async e => {
         setLoading(true)
         e.preventDefault()
@@ -47,20 +46,20 @@ export default function CreateCardForm() {
         }
       }}
     >
-      <Form>
-        <Input
+      <form>
+        <input
           placeholder="Front"
           value={frontText}
           onChange={e => setFrontText(e.target.value)}
           required
         />
-        <Input
+        <input
           placeholder="Back"
           value={backText}
           onChange={e => setBackText(e.target.value)}
           required
         />
-        <Button
+        <button
           type="submit"
           primary
           style={{
@@ -68,8 +67,8 @@ export default function CreateCardForm() {
           }}
         >
           Create Card
-        </Button>
-      </Form>
-    </Fieldset>
+        </button>
+      </form>
+    </fieldset>
   )
 }

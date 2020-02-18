@@ -1,9 +1,10 @@
 import React, {
-  useState,
   createContext,
-  useLayoutEffect,
   useContext,
+  useLayoutEffect,
+  useState,
 } from 'react'
+
 import { IsAuthContext } from '.'
 
 export const MyCardsContext = createContext()
@@ -12,13 +13,10 @@ export default function MyMyCardsContext({ children }) {
   const [data, setMyCards] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-
-  // To listen for changes in auth status. Fetch after login.
   const { isAuth } = useContext(IsAuthContext)
 
   useLayoutEffect(() => {
     setLoading(true)
-
     const token = localStorage.getItem('token')
 
     token ? fetchMyCards(token) : setLoading(false)

@@ -11,7 +11,6 @@ exports.handler = async (event, context) => {
     const verifiedToken = verify(req.token, process.env.REACT_APP_APP_SECRET)
     const { userId } = verifiedToken
 
-    // TODO: CHECK THAT USER OWNS THAT CARD
     const card = await Card.findById(req.cardId)
 
     if (req.frontText) {
@@ -34,7 +33,7 @@ exports.handler = async (event, context) => {
     }
   } catch (error) {
     return {
-      statusCode: 500,
+      statusCode: 403,
       body: JSON.stringify({
         error,
       }),

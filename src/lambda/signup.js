@@ -19,10 +19,10 @@ export async function handler(event, context) {
 
     if (existingUser) {
       return {
-        statusCode: 401,
+        statusCode: 403,
         body: JSON.stringify({
           error: {
-            message: `That Username already exists :(`,
+            message: `That username already exists :(`,
           },
         }),
       }
@@ -48,10 +48,11 @@ export async function handler(event, context) {
     console.log(error)
 
     return {
-      statusCode: 500,
+      statusCode: 403,
       body: JSON.stringify({
         error: {
-          message: `Opps. Something went wrong.`,
+          message: `00pps. Something went wrong  :(`,
+          error,
         },
       }),
     }

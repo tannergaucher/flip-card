@@ -1,24 +1,20 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-
 import { Signup } from '../auth'
-import { StyledPage, Button } from '../styles'
+import { useHistory } from 'react-router-dom'
 
 export default function SignupPage() {
   const history = useHistory()
   return (
-    <StyledPage>
+    <>
       <h1 className="title-center">Sign up for an account</h1>
       <Signup />
-      <Button
-        fill
-        plain
+      <button
         onClick={() => {
           history.push(`/login`)
         }}
       >
         Login
-      </Button>
-    </StyledPage>
+      </button>
+    </>
   )
 }

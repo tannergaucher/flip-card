@@ -1,30 +1,15 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
-
 import { FlipCard } from '../card'
+import React from 'react'
 import { useCard } from '../hooks'
-
-const StyledCardPage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`
+import { useParams } from 'react-router-dom'
 
 export default function CardPage() {
   const { cardId } = useParams()
   const { loading, error, data } = useCard(cardId)
 
-  console.log(loading)
+  if (loading) return <h2>Loading card...</h2>
 
-  return (
-    <StyledCardPage>
-      {loading && <h2>Loading card...</h2>}
-      {error && <h2 style={{ color: `var(--warning)` }}>Error!</h2>}
-      {data && data.card && <FlipCard card={data.card} />}
-    </StyledCardPage>
-  )
+  if (error) return <h2 style={{ color: `var(--warning)` }}>Error!</h2>
+
+  return <>{data && data.card && <FlipCard card={data.card} />}</>
 }

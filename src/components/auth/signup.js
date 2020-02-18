@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
-
 import { IsAuthContext, UserContext } from '../context'
-import { Fieldset, Form, Input, Button } from '../styles'
+import React, { useContext, useState } from 'react'
+
+import { useHistory } from 'react-router-dom'
 
 export default function Signup() {
   const [username, setUsername] = useState('')
@@ -16,12 +15,12 @@ export default function Signup() {
   const history = useHistory()
 
   return (
-    <Fieldset disabled={loading}>
+    <fieldset disabled={loading}>
       {error && (
         <h2 style={{ color: `var(--warning)` }}>Error: {error.message}</h2>
       )}
 
-      <Form
+      <form
         onSubmit={async e => {
           e.preventDefault()
           setLoading(true)
@@ -51,7 +50,7 @@ export default function Signup() {
           }
         }}
       >
-        <Input
+        <input
           type="text"
           placeholder="Username"
           value={username}
@@ -59,23 +58,17 @@ export default function Signup() {
           required
         />
 
-        <Input
+        <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <Button
-          type="submit"
-          primary
-          style={{
-            background: loading ? 'grey' : '',
-          }}
-        >
+        <button type="submit" primary>
           Sign Up
-        </Button>
-      </Form>
-    </Fieldset>
+        </button>
+      </form>
+    </fieldset>
   )
 }

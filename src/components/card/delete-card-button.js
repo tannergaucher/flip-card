@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
 
 import { MyCardsContext } from '../context'
-import { Form, Button } from '../styles'
+import { useHistory } from 'react-router-dom'
 
 export default function DeleteCardButton({ card }) {
   const [loading, setLoading] = useState(false)
@@ -10,7 +9,7 @@ export default function DeleteCardButton({ card }) {
   const history = useHistory()
 
   return (
-    <Form
+    <form
       onSubmit={async e => {
         e.preventDefault()
         setLoading(true)
@@ -41,14 +40,9 @@ export default function DeleteCardButton({ card }) {
         }
       }}
     >
-      <Button
-        type="submit"
-        style={{
-          background: loading ? 'grey' : '',
-        }}
-      >
+      <button type="submit" disabled={loading}>
         Delete this card
-      </Button>
-    </Form>
+      </button>
+    </form>
   )
 }

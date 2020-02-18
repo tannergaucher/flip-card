@@ -53,10 +53,10 @@ export async function handler(event, context) {
   } catch (error) {
     console.log(error)
     return {
-      statusCode: 500,
+      statusCode: 403,
       body: JSON.stringify({
         error: {
-          message: `Oops, something went wrong`,
+          message: `00ps, something went wrong :(`,
         },
       }),
     }

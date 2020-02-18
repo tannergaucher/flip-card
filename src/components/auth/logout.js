@@ -1,7 +1,5 @@
+import { IsAuthContext, MyCardsContext, UserContext } from '../context'
 import React, { useContext } from 'react'
-
-import { IsAuthContext, UserContext, MyCardsContext } from '../context'
-import { Button } from '../styles'
 
 export default function Logout() {
   const { setIsAuth } = useContext(IsAuthContext)
@@ -9,7 +7,7 @@ export default function Logout() {
   const { setMyCards } = useContext(MyCardsContext)
 
   return (
-    <Button
+    <button
       onClick={() => {
         localStorage.removeItem('token')
         setIsAuth(false)
@@ -18,6 +16,6 @@ export default function Logout() {
       }}
     >
       Logout
-    </Button>
+    </button>
   )
 }

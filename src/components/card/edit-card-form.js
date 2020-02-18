@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
 
-import { Input, Form, Fieldset, Button } from '../styles'
 import { MyCardsContext } from '../context'
+import { useHistory } from 'react-router-dom'
 
 export default function EditCardForm({ card }) {
   const [frontText, setFrontText] = useState('')
@@ -13,8 +12,8 @@ export default function EditCardForm({ card }) {
   const history = useHistory()
 
   return (
-    <Fieldset>
-      <Form
+    <fieldset disabled={loading}>
+      <form
         onSubmit={async e => {
           e.preventDefault()
           setLoading(true)
@@ -53,26 +52,20 @@ export default function EditCardForm({ card }) {
           }
         }}
       >
-        <Input
+        <input
           type="text"
           defaultValue={card.frontText}
           onChange={e => setFrontText(e.target.value)}
         />
-        <Input
+        <input
           type="text"
           defaultValue={card.backText}
           onChange={e => setBackText(e.target.value)}
         />
-        <Button
-          primary
-          type="submit"
-          style={{
-            background: loading ? 'grey' : '',
-          }}
-        >
+        <button primary type="submit" disabled={loading}>
           Save Changes
-        </Button>
-      </Form>
-    </Fieldset>
+        </button>
+      </form>
+    </fieldset>
   )
 }

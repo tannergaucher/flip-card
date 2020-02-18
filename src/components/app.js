@@ -1,14 +1,25 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
 import {
-  LoginPage,
-  SignupPage,
-  IndexPage,
   CardPage,
   EditCardPage,
-} from '../pages'
+  IndexPage,
+  LoginPage,
+  SignupPage,
+} from './pages'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
-export default function Main() {
+import React from 'react'
+
+export default function App() {
+  return (
+    <Router>
+      <header>header</header>
+      <Main />
+      <footer>Footer</footer>
+    </Router>
+  )
+}
+
+function Main() {
   return (
     <main>
       <Switch>
