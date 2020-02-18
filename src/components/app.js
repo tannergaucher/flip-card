@@ -12,7 +12,9 @@ import React from 'react'
 export default function App() {
   return (
     <Router>
-      <header>header</header>
+      <header className="header">
+        <h4 className="site-title">Flipcard</h4>
+      </header>
       <Main />
       <footer>Footer</footer>
     </Router>
