@@ -9,13 +9,13 @@ export default function Logout() {
   return (
     <button
       className="btn"
+      style={{ margin: `0` }}
       onClick={() => {
         localStorage.removeItem('token')
         setIsAuth(false)
         setUser(null)
         setMyCards(null)
       }}
-      style={{ margin: `0` }}
     >
       Logout
     </button>
