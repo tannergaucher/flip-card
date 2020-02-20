@@ -13,7 +13,13 @@ export default function EditCardPage() {
 
   return (
     <div className="padding page container center">
-      <EditCardForm frontText={frontText} backText={backText} cardId={cardId} />
+      {isAuth ? (
+        <EditCardForm
+          frontText={frontText}
+          backText={backText}
+          cardId={cardId}
+        />
+      ) : null}
     </div>
   )
 }
