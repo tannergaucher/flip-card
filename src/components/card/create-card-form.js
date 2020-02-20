@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import { MyCardsContext } from '../context'
+import { useHistory } from 'react-router-dom'
 
 export default function CreateCardForm() {
   const [frontText, setFrontText] = useState('')
@@ -9,8 +10,12 @@ export default function CreateCardForm() {
 
   const { data, setMyCards } = useContext(MyCardsContext)
 
+  const history = useHistory()
+
   return (
     <fieldset
+      className="fieldset"
+      disabled={loading}
       onSubmit={async e => {
         setLoading(true)
         e.preventDefault()
@@ -39,6 +44,7 @@ export default function CreateCardForm() {
           setFrontText('')
           setBackText('')
           setLoading(false)
+          history.push(`/`)
         } else {
           const { error } = await res.json()
           console.log(error)
@@ -46,26 +52,22 @@ export default function CreateCardForm() {
         }
       }}
     >
-      <form>
+      <form className="form">
         <input
+          className="input"
           placeholder="Front"
           value={frontText}
           onChange={e => setFrontText(e.target.value)}
           required
         />
         <input
+          className="input"
           placeholder="Back"
           value={backText}
           onChange={e => setBackText(e.target.value)}
           required
         />
-        <button
-          type="submit"
-          primary
-          style={{
-            background: loading ? 'grey' : '',
-          }}
-        >
+        <button className="btn btn-primary" type="submit" disabled={loading}>
           Create Card
         </button>
       </form>

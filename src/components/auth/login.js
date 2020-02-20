@@ -14,12 +14,12 @@ export default function Login() {
   const history = useHistory()
 
   return (
-    <fieldset disabled={loading}>
+    <fieldset className="fieldset" disabled={loading}>
       {error && (
         <h2 style={{ color: `var(--warning)` }}>Error: {error.message}</h2>
       )}
-
       <form
+        className="form"
         onSubmit={async e => {
           e.preventDefault()
           setLoading(true)
@@ -50,27 +50,22 @@ export default function Login() {
         }}
       >
         <input
+          className="input"
           type="text"
           placeholder="Username"
           value={username}
           onChange={e => setUsername(e.target.value)}
           required
         />
-
         <input
+          className="input"
           type="password"
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <button
-          type="submit"
-          primary
-          style={{
-            background: loading ? 'grey' : '',
-          }}
-        >
+        <button className="btn btn-primary" type="submit" disabled={loading}>
           Login
         </button>
       </form>

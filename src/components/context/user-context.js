@@ -38,7 +38,7 @@ export default function MyUserContext({ children }) {
   }, [])
 
   return (
-    <UserContext.Provider value={{ data, setUser, loading, error }}>
+    <UserContext.Provider value={{ data, loading, error, setUser }}>
       {children}
     </UserContext.Provider>
   )

@@ -46,7 +46,7 @@ export default function MyMyCardsContext({ children }) {
   }, [isAuth])
 
   return (
-    <MyCardsContext.Provider value={{ data, setMyCards, loading, error }}>
+    <MyCardsContext.Provider value={{ data, loading, error, setMyCards }}>
       {children}
     </MyCardsContext.Provider>
   )
