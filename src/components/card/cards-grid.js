@@ -1,13 +1,11 @@
+import { MyCardsContext, UserContext } from '../context'
 import React, { useContext } from 'react'
 
 import { FlipCard } from '../card'
 import { Link } from 'react-router-dom'
-import { MyCardsContext } from '../context'
 
 export default function CardsGrid() {
   const { data, loading, error } = useContext(MyCardsContext)
-
-  // TODO
 
   const isShare = window.navigator.share !== undefined
 
@@ -32,7 +30,7 @@ export default function CardsGrid() {
             </Link>
             <div style={{ padding: `0 var(--space-sm)` }}>
               <hr className="hr" style={{ width: `100%` }} />
-              {isShare && <button className="btn">Share</button>}
+              {isShare && <Share card={card} />}
               <Link
                 to={{
                   pathname: `/edit-card/${card._id}`,
@@ -49,5 +47,26 @@ export default function CardsGrid() {
           </div>
         ))}
     </div>
+  )
+}
+
+const Share = ({ card }) => {
+  const { data } = useContext(UserContext)
+
+  return (
+    <button
+      className="btn"
+      onClick={() => {
+        if (window.navigator.share) {
+          window.navigator.share({
+            title: `flipcard.fun`,
+            text: `${data.user.username} sent you a flipcard!`,
+            url: `https://flipcard.fun/card/${card._id}`,
+          })
+        }
+      }}
+    >
+      Share
+    </button>
   )
 }
