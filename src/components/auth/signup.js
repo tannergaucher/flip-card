@@ -15,12 +15,13 @@ export default function Signup() {
   const history = useHistory()
 
   return (
-    <fieldset disabled={loading}>
+    <fieldset className="fieldset" disabled={loading}>
       {error && (
         <h2 style={{ color: `var(--warning)` }}>Error: {error.message}</h2>
       )}
 
       <form
+        className="form"
         onSubmit={async e => {
           e.preventDefault()
           setLoading(true)
@@ -51,6 +52,7 @@ export default function Signup() {
         }}
       >
         <input
+          className="input"
           type="text"
           placeholder="Username"
           value={username}
@@ -59,13 +61,14 @@ export default function Signup() {
         />
 
         <input
+          className="input"
           type="password"
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <button type="submit" primary>
+        <button type="submit" className="btn btn-primary">
           Sign Up
         </button>
       </form>

@@ -3,13 +3,14 @@ import React, { useContext, useState } from 'react'
 import { MyCardsContext } from '../context'
 import { useHistory } from 'react-router-dom'
 
-export default function DeleteCardButton({ card }) {
+export default function DeleteCardButton({ cardId }) {
   const [loading, setLoading] = useState(false)
   const { data, setMyCards } = useContext(MyCardsContext)
   const history = useHistory()
 
   return (
     <form
+      className="form"
       onSubmit={async e => {
         e.preventDefault()
         setLoading(true)
@@ -20,16 +21,14 @@ export default function DeleteCardButton({ card }) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            cardId: card._id,
+            cardId,
             token,
           }),
         })
 
         if (res.ok) {
           setMyCards({
-            cards: data.cards.filter(
-              contextCard => contextCard._id !== card._id
-            ),
+            cards: data.cards.filter(contextCard => contextCard._id !== cardId),
           })
           setLoading(false)
           history.push(`/`)
@@ -40,7 +39,16 @@ export default function DeleteCardButton({ card }) {
         }
       }}
     >
-      <button type="submit" disabled={loading}>
+      <button
+        className="btn"
+        type="submit"
+        disabled={loading}
+        style={{
+          borderColor: `var(--bg-1)`,
+          boxShadow: `none`,
+          color: `var(--accent-2)`,
+        }}
+      >
         Delete this card
       </button>
     </form>

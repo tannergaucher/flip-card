@@ -76,10 +76,10 @@
   --btn-color: var(--text-color);
   --btn-border: var(--href-color);
   --btn-hover-color: var(--text-color);
-  --primary-btn-bg: var(--text-color);
-  --primary-btn-color: var(--accent-2);
-  --primary-btn-hover-color: var(--accent-1);
-  --input-border: var(--text-color);
+  --primary-btn-bg: var(--accent-1);
+  --primary-btn-color: var(--bg-1);
+  --primary-btn-hover-color: var(--bg-1);
+  --input-border: var(--accent-1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -97,6 +97,7 @@
     --btn-color: var(--href-color);
     --btn-hover-color: var(--href-hover-color);
     --primary-btn-bg: var(--bg-2);
+    --primary-btn-color: var(--accent-1);
     --primary-btn-hover-color: var(--bg-1);
     --input-border: var(--bg-2);
     --code-bg: var(--bg-2);
