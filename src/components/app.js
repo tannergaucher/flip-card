@@ -18,7 +18,7 @@ export default function App() {
 
   return (
     <Router>
-      <header className="header padding">
+      <header className="header" style={{ padding: `var(--space-sm)` }}>
         <Link to="/" className="nav-link">
           <h2 className="site-title title">Flipcard</h2>
         </Link>
@@ -32,7 +32,8 @@ export default function App() {
         {!isAuth && <Navlinks />}
       </header>
       <Main />
-      <footer className="footer padding">
+
+      <footer className="footer" style={{ padding: `var(--space-sm)` }}>
         <Link to="/" className="nav-link">
           <h2 className="site-title title">Flipcard</h2>
         </Link>

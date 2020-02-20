@@ -10,7 +10,8 @@ export default function CardPage({ pageContext }) {
 
   if (loading)
     return (
-      <div style={{ height: `50vh`, display: `flex`, alignItems: `center ` }}>
+      <div>
+        <br />
         <FlipCard frontText="Loading card" backText="Loading card" />
       </div>
     )
@@ -23,16 +24,8 @@ export default function CardPage({ pageContext }) {
     )
 
   return (
-    <div
-      className="padding"
-      style={{
-        display: `flex`,
-        justifyContent: `center`,
-        alignItems: `center`,
-        height: `50vh`,
-        width: `50vw`,
-      }}
-    >
+    <div className="padding">
+      <br />
       {data && data.card && (
         <FlipCard
           frontText={data.card.frontText}
