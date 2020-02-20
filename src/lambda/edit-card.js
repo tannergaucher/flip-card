@@ -32,6 +32,7 @@ exports.handler = async (event, context) => {
       }),
     }
   } catch (error) {
+    console.log(error)
     return {
       statusCode: 403,
       body: JSON.stringify({
