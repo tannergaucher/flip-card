@@ -10,8 +10,6 @@ exports.handler = async (event, context) => {
 
     const card = await Card.findById(req.cardId)
 
-    console.log(card)
-
     return {
       statusCode: 200,
       body: JSON.stringify({
