@@ -1,19 +1,35 @@
+import { useHistory, useParams } from 'react-router-dom'
+
 import { FlipCard } from '../card'
 import React from 'react'
 import { useCard } from '../hooks'
-import { useParams } from 'react-router-dom'
 
-export default function CardPage({ pageContext }) {
+export default function CardPage() {
+  const history = useHistory()
+  const { card } = history.location.state
+
+  return card ? <MyCard card={card} /> : <FetchedCard />
+}
+
+function MyCard({ card }) {
+  return (
+    <>
+      <br />
+      <FlipCard frontText={card.frontText} backText={card.backText} />
+    </>
+  )
+}
+
+function FetchedCard() {
   const { cardId } = useParams()
-
   const { loading, error, data } = useCard(cardId)
 
   if (loading)
     return (
-      <div>
+      <>
         <br />
         <FlipCard frontText="Loading card" backText="Loading card" />
-      </div>
+      </>
     )
 
   if (error)
