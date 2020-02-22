@@ -1,8 +1,8 @@
 import React, { createContext, useLayoutEffect, useState } from 'react'
 
-export const IsAuthContext = createContext()
+export const IS_AUTH_CONTEXT = createContext()
 
-export default function MyIsAuthContext({ children }) {
+export default function IsAuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false)
 
   useLayoutEffect(() => {
@@ -14,8 +14,8 @@ export default function MyIsAuthContext({ children }) {
   }, [])
 
   return (
-    <IsAuthContext.Provider value={{ isAuth, setIsAuth }}>
+    <IS_AUTH_CONTEXT.Provider value={{ isAuth, setIsAuth }}>
       {children}
-    </IsAuthContext.Provider>
+    </IS_AUTH_CONTEXT.Provider>
   )
 }
