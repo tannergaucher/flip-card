@@ -34,7 +34,14 @@ export default function FlipCard({ frontText, backText, cardId }) {
         className="c"
         style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
       >
-        <h1 className="text--xxxl">{frontText}</h1>
+        <h1
+          className="text--xxxl"
+          style={{
+            wordBreak: `break-all`,
+          }}
+        >
+          {frontText}
+        </h1>
       </animated.div>
       <div>
         <animated.div
@@ -44,7 +51,14 @@ export default function FlipCard({ frontText, backText, cardId }) {
             transform: transform.interpolate(t => `${t} rotateX(180deg)`),
           }}
         >
-          <h1 className="text--xxxl">{backText}</h1>
+          <h1
+            className="text--xxxl"
+            style={{
+              wordBreak: `break-all`,
+            }}
+          >
+            {backText}
+          </h1>
         </animated.div>
       </div>
     </StyledCard>

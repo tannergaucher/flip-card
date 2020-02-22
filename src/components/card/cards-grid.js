@@ -24,7 +24,15 @@ export default function CardsGrid() {
         data.cards &&
         data.cards.map(card => (
           <div className="card" key={card._id}>
-            <Link className="nav-link" to={`/card/${card._id}`}>
+            <Link
+              className="nav-link"
+              to={{
+                pathname: `/card/${card._id}`,
+                state: {
+                  card,
+                },
+              }}
+            >
               <h2 className="card-heading">{card.frontText}</h2>
               <h2 className="card-heading">{card.backText}</h2>
             </Link>
