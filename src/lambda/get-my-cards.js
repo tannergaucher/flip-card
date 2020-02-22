@@ -6,7 +6,6 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    console.log('GET MY CARDS')
     connectToDb()
     const req = JSON.parse(event.body)
     const verifiedToken = verify(req.token, process.env.REACT_APP_APP_SECRET)
@@ -14,7 +13,7 @@ exports.handler = async (event, context) => {
 
     const cards = await Card.find({
       userId,
-    })
+    }).sort({ _id: -1 })
 
     return {
       statusCode: 200,
