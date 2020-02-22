@@ -7,17 +7,18 @@ import {
   SignupPage,
 } from './pages'
 import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Navlinks, ScrollToTop } from './elements'
 import React, { useContext } from 'react'
 
 import { IsAuthContext } from './context'
 import { Logout } from './auth'
-import { Navlinks } from './elements'
 
 export default function App() {
   const { isAuth } = useContext(IsAuthContext)
 
   return (
     <Router>
+      <ScrollToTop />
       <header className="header" style={{ padding: `var(--space-sm)` }}>
         <Link to="/" className="nav-link">
           <h2 className="site-title title">Flipcard</h2>
