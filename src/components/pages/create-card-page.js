@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 
 import { CreateCardForm } from '../card'
-import { IsAuthContext } from '../context'
+import { IS_AUTH_CONTEXT } from '../context'
 
 export default function CreateCardPage() {
-  const { isAuth } = useContext(IsAuthContext)
+  const { isAuth } = useContext(IS_AUTH_CONTEXT)
 
   return (
     <div className="padding page container center">

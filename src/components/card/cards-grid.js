@@ -1,11 +1,11 @@
-import { MyCardsContext, UserContext } from '../context'
+import { MY_CARDS_CONTEXT, USER_CONTEXT } from '../context'
 import React, { useContext } from 'react'
 
 import { FlipCard } from '../card'
 import { Link } from 'react-router-dom'
 
 export default function CardsGrid() {
-  const { data, loading, error } = useContext(MyCardsContext)
+  const { data, loading, error } = useContext(MY_CARDS_CONTEXT)
 
   const isShare = window.navigator.share !== undefined
 
@@ -16,7 +16,7 @@ export default function CardsGrid() {
     return <h2 style={{ color: `var(--warning)` }}>Error! ${error.message}</h2>
 
   if (data.cards.length === 0)
-    return <h1>You haven't made any cards yet :( </h1>
+    return <h1 className="title">You haven't made any cards yet :( </h1>
 
   return (
     <div className="content-grid">
@@ -59,7 +59,7 @@ export default function CardsGrid() {
 }
 
 const Share = ({ card }) => {
-  const { data } = useContext(UserContext)
+  const { data } = useContext(USER_CONTEXT)
 
   return (
     <button

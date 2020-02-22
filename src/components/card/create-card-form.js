@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import { MyCardsContext } from '../context'
+import { MY_CARDS_CONTEXT } from '../context'
 import { useHistory } from 'react-router-dom'
 
 export default function CreateCardForm() {
@@ -8,7 +8,7 @@ export default function CreateCardForm() {
   const [backText, setBackText] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { data, setMyCards } = useContext(MyCardsContext)
+  const { data, setMyCards } = useContext(MY_CARDS_CONTEXT)
 
   const history = useHistory()
 

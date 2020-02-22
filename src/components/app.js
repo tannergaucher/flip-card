@@ -7,14 +7,14 @@ import {
   SignupPage,
 } from './pages'
 import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import { Navlinks, ScrollToTop } from './elements'
+import { Main, Navlinks, ScrollToTop } from './elements'
 import React, { useContext } from 'react'
 
-import { IsAuthContext } from './context'
+import { IS_AUTH_CONTEXT } from './context'
 import { Logout } from './auth'
 
 export default function App() {
-  const { isAuth } = useContext(IsAuthContext)
+  const { isAuth } = useContext(IS_AUTH_CONTEXT)
 
   return (
     <Router>
@@ -33,7 +33,6 @@ export default function App() {
         {!isAuth && <Navlinks />}
       </header>
       <Main />
-
       <footer className="footer" style={{ padding: `var(--space-sm)` }}>
         <Link to="/" className="nav-link">
           <h2 className="site-title title">Flipcard</h2>
@@ -41,32 +40,5 @@ export default function App() {
         {isAuth && <Logout />}
       </footer>
     </Router>
-  )
-}
-
-function Main() {
-  return (
-    <main className="main">
-      <Switch>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/signup">
-          <SignupPage />
-        </Route>
-        <Route path="/create-card">
-          <CreateCardPage />
-        </Route>
-        <Route path="/card/:cardId">
-          <CardPage />
-        </Route>
-        <Route path="/edit-card/:cardId">
-          <EditCardPage />
-        </Route>
-        <Route path="/">
-          <IndexPage />
-        </Route>
-      </Switch>
-    </main>
   )
 }

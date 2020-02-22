@@ -1,8 +1,8 @@
 import React, { createContext, useLayoutEffect, useState } from 'react'
 
-export const UserContext = createContext()
+export const USER_CONTEXT = createContext()
 
-export default function MyUserContext({ children }) {
+export default function UserProvider({ children }) {
   const [data, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -38,8 +38,8 @@ export default function MyUserContext({ children }) {
   }, [])
 
   return (
-    <UserContext.Provider value={{ data, loading, error, setUser }}>
+    <USER_CONTEXT.Provider value={{ data, loading, error, setUser }}>
       {children}
-    </UserContext.Provider>
+    </USER_CONTEXT.Provider>
   )
 }
