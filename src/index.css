@@ -599,3 +599,20 @@ pre {
   padding: 0 var(--space-sm);
   border-radius: var(--radius);
 }
+
+/* SITE STYLES */
+
+.flipcard {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  padding: var(--space-sm);
+  margin: var(--space-sm);
+  border-radius: var(--radius);
+  box-shadow: var(--elevation-3);
+  background: var(--bg-2);
+  text-align: center;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
