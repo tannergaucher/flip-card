@@ -6,9 +6,12 @@ import { useCard } from '../hooks'
 
 export default function CardPage() {
   const history = useHistory()
-  const { card } = history.location.state
 
-  return card ? <MyCard card={card} /> : <FetchedCard />
+  if (history.location.state && history.location.state.card) {
+    return <MyCard card={history.location.state.card} />
+  }
+
+  return <FetchedCard />
 }
 
 function MyCard({ card }) {
