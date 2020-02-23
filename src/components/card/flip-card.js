@@ -15,14 +15,7 @@ export default function FlipCard({ frontText, backText, cardId }) {
         className="flipcard"
         style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
       >
-        <h1
-          className="text--xxxl"
-          style={{
-            wordBreak: `break-all`,
-          }}
-        >
-          {frontText}
-        </h1>
+        <h1 className="text--xxxl">{frontText}</h1>
       </animated.div>
       <animated.div
         className="flipcard"
@@ -31,14 +24,7 @@ export default function FlipCard({ frontText, backText, cardId }) {
           transform: transform.interpolate(t => `${t} rotateX(180deg)`),
         }}
       >
-        <h1
-          className="text--xxxl"
-          style={{
-            wordBreak: `break-all`,
-          }}
-        >
-          {backText}
-        </h1>
+        <h1 className="text--xxxl">{backText}</h1>
       </animated.div>
     </div>
   )
