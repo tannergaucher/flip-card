@@ -1,19 +1,19 @@
 # Flipcard
 
-Share Jokes with Friends on a card that flips.
+## Share Jokes with Friends on a card that flips.
 
-## Installation 
+## Uses
 
-### App Secret
+- [React hooks / context api](https://reactjs.org/)
+- [Netlify functions](https://docs.netlify.com/functions/overview/)
+- [MongoDB Atlas](https://www.mongodb.com/)
 
-`REACT_APP_APP_SECRET`
+## ENV
 
-### MongoDB Connection String
+### `REACT_APP_APP_SECRET=<ANY_STRING>`
 
-`REACT_APP_DB_URL`
+### `REACT_APP_DB_URL=<MONGODB_URI_CONNECTION_STRING>`
 
 ## Run
 
-`REACT_APP_DB_URL="<YOUR_STRING>" REACT_APP_DB_URL="<VALID_MONGODB_URI_CONNECTION_STRING>" netlify dev`
-
-View on [localhost:8888](http://localhost:8888)
+`netlify dev` builds the functions and serves app on http://localhost:8000
