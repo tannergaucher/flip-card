@@ -9,7 +9,7 @@ export default function UseCardHook(cardId) {
     setLoading(true)
     async function fetchCard(cardId) {
       const res = await fetch(`/.netlify/functions/get-card`, {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
