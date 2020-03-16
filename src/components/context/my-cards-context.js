@@ -5,15 +5,15 @@ import React, {
   useState,
 } from 'react'
 
-import { IS_AUTH_CONTEXT } from '.'
+import { IsAuthContext } from '.'
 
-export const MY_CARDS_CONTEXT = createContext()
+export const MyCardsContext = createContext()
 
 export default function MyCardsProvider({ children }) {
   const [data, setMyCards] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const { isAuth } = useContext(IS_AUTH_CONTEXT)
+  const { isAuth } = useContext(IsAuthContext)
 
   useLayoutEffect(() => {
     setLoading(true)
@@ -46,8 +46,8 @@ export default function MyCardsProvider({ children }) {
   }, [isAuth])
 
   return (
-    <MY_CARDS_CONTEXT.Provider value={{ data, loading, error, setMyCards }}>
+    <MyCardsContext.Provider value={{ data, loading, error, setMyCards }}>
       {children}
-    </MY_CARDS_CONTEXT.Provider>
+    </MyCardsContext.Provider>
   )
 }

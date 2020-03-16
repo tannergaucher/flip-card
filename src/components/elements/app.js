@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import { Link, BrowserRouter as Router } from 'react-router-dom'
 
 import { Logout } from '../auth'
-import { IS_AUTH_CONTEXT } from '../context'
+import { IsAuthContext } from '../context'
 import { Main, Navlinks, ScrollToTop } from '.'
 
 export default function App() {
-  const { isAuth } = useContext(IS_AUTH_CONTEXT)
+  const { isAuth } = useContext(IsAuthContext)
 
   return (
     <Router>

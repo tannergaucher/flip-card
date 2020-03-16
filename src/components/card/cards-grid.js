@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import { FlipCard } from '../card'
-import { MY_CARDS_CONTEXT, USER_CONTEXT } from '../context'
+import { MyCardsContext, UserContext } from '../context'
 
 export default function CardsGrid() {
-  const { data, loading, error } = useContext(MY_CARDS_CONTEXT)
+  const { data, loading, error } = useContext(MyCardsContext)
 
   const isShare = window.navigator.share !== undefined
 
@@ -59,7 +59,7 @@ export default function CardsGrid() {
 }
 
 const Share = ({ card }) => {
-  const { data } = useContext(USER_CONTEXT)
+  const { data } = useContext(UserContext)
 
   return (
     <button

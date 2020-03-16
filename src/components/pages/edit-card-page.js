@@ -2,11 +2,12 @@ import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { EditCardForm } from '../card'
-import { IS_AUTH_CONTEXT } from '../context'
+import { IsAuthContext } from '../context'
 
 export default function EditCardPage() {
-  const { isAuth } = useContext(IS_AUTH_CONTEXT)
+  const { isAuth } = useContext(IsAuthContext)
   const history = useHistory()
+
   const { frontText, backText, cardId } = history.location.state
 
   return (
