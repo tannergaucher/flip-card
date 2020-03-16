@@ -1,5 +1,6 @@
-import { IS_AUTH_CONTEXT, MY_CARDS_CONTEXT, USER_CONTEXT } from '../context'
 import React, { useContext } from 'react'
+
+import { IS_AUTH_CONTEXT, MY_CARDS_CONTEXT, USER_CONTEXT } from '../context'
 
 export default function Logout() {
   const { setIsAuth } = useContext(IS_AUTH_CONTEXT)

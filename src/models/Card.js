@@ -7,6 +7,12 @@ const cardSchema = new mongoose.Schema({
   backText: {
     type: String,
   },
+  url: {
+    type: String,
+  },
+  invitationLink: {
+    type: String,
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
   },

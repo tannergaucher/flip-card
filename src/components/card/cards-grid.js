@@ -1,8 +1,8 @@
-import { MY_CARDS_CONTEXT, USER_CONTEXT } from '../context'
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 import { FlipCard } from '../card'
-import { Link } from 'react-router-dom'
+import { MY_CARDS_CONTEXT, USER_CONTEXT } from '../context'
 
 export default function CardsGrid() {
   const { data, loading, error } = useContext(MY_CARDS_CONTEXT)

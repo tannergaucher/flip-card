@@ -1,6 +1,5 @@
 const { Card } = require('../models')
 const connectToDb = require('../connect-to-db')
-const { verify } = require('jsonwebtoken')
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
@@ -8,8 +7,6 @@ exports.handler = async (event, context) => {
   try {
     connectToDb()
     const req = JSON.parse(event.body)
-    const verifiedToken = verify(req.token, process.env.REACT_APP_APP_SECRET)
-    const { userId } = verifiedToken
 
     const card = await Card.findById(req.cardId)
 
@@ -19,6 +16,10 @@ exports.handler = async (event, context) => {
 
     if (req.backText) {
       card.backText = req.backText
+    }
+
+    if (req.invitationUrl) {
+      card.invitationUrl = req.invitationUrl
     }
 
     const updatedCard = await card.save()

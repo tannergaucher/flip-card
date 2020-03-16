@@ -1,7 +1,7 @@
-import { IS_AUTH_CONTEXT, USER_CONTEXT } from '../context'
 import React, { useContext, useState } from 'react'
-
 import { useHistory } from 'react-router-dom'
+
+import { IS_AUTH_CONTEXT, USER_CONTEXT } from '../context'
 
 export default function Signup() {
   const [username, setUsername] = useState('')
@@ -19,7 +19,6 @@ export default function Signup() {
       {error && (
         <h2 style={{ color: `var(--warning)` }}>Error: {error.message}</h2>
       )}
-
       <form
         className="form"
         onSubmit={async e => {

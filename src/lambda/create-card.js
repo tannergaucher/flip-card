@@ -14,6 +14,7 @@ exports.handler = async (event, context) => {
     const card = await Card.create({
       frontText: req.frontText,
       backText: req.backText,
+      invitationLink: req.invitationLink,
       userId,
     })
 
