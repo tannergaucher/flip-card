@@ -2,7 +2,7 @@
 
 Share Jokes with Friends on a card that flips.
 
-## Installation 
+## Installation
 
 ### App Secret
 
@@ -14,6 +14,6 @@ Share Jokes with Friends on a card that flips.
 
 ## Run
 
-`REACT_APP_DB_URL="<YOUR_STRING>" REACT_APP_DB_URL="<VALID_MONGODB_URI_CONNECTION_STRING>" netlify dev`
+`REACT_APP_APP_SECRET="<YOUR_APP_SECRET_STRING>" REACT_APP_DB_URL="<YOUR_MONGO_URI_CONNECTION_STRING>" netlify dev`
 
-View on [localhost:8888](http://localhost:8888)
+Builds functions and serves app on [localhost:8888](http://localhost:8888)
