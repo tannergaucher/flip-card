@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { MY_CARDS_CONTEXT } from '../context'
-import { useHistory } from 'react-router-dom'
 
 export default function DeleteCardButton({ cardId }) {
   const [loading, setLoading] = useState(false)

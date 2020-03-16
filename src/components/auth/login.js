@@ -1,7 +1,7 @@
-import { IS_AUTH_CONTEXT, USER_CONTEXT } from '../context'
 import React, { useContext, useState } from 'react'
-
 import { useHistory } from 'react-router-dom'
+
+import { IS_AUTH_CONTEXT, USER_CONTEXT } from '../context'
 
 export default function Login() {
   const [username, setUsername] = useState('')

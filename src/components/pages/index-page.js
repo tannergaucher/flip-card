@@ -1,6 +1,6 @@
-import { CardsGrid, FlipCard } from '../card'
 import React, { useContext } from 'react'
 
+import { CardsGrid, FlipCard } from '../card'
 import { IS_AUTH_CONTEXT } from '../context'
 
 export default function IndexPage() {
