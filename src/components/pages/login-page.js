@@ -1,5 +1,6 @@
-import { Login } from '../auth'
 import React from 'react'
+
+import { Login } from '../auth'
 
 export default function LoginPage() {
   return (

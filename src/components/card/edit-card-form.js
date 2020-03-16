@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { DeleteCardButton } from '.'
-import { MY_CARDS_CONTEXT } from '../context'
-import { useHistory } from 'react-router-dom'
+import { MyCardsContext } from '../context'
 
 export default function EditCardForm({ frontText, backText, cardId }) {
   const [newFrontText, setNewFrontText] = useState('')
   const [newBackText, setNewBackText] = useState('')
   const [loading, setLoading] = useState(false)
-  const { data, setMyCards } = useContext(MY_CARDS_CONTEXT)
+  const { data, setMyCards } = useContext(MyCardsContext)
 
   const history = useHistory()
 

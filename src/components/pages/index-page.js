@@ -1,10 +1,10 @@
-import { CardsGrid, FlipCard } from '../card'
 import React, { useContext } from 'react'
 
-import { IS_AUTH_CONTEXT } from '../context'
+import { CardsGrid, FlipCard } from '../card'
+import { IsAuthContext } from '../context'
 
 export default function IndexPage() {
-  const { isAuth } = useContext(IS_AUTH_CONTEXT)
+  const { isAuth } = useContext(IsAuthContext)
 
   return (
     <div className="padding page">

@@ -1,7 +1,7 @@
-import { IS_AUTH_CONTEXT, USER_CONTEXT } from '../context'
 import React, { useContext, useState } from 'react'
-
 import { useHistory } from 'react-router-dom'
+
+import { IsAuthContext, UserContext } from '../context'
 
 export default function Login() {
   const [username, setUsername] = useState('')
@@ -9,8 +9,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const { setIsAuth } = useContext(IS_AUTH_CONTEXT)
-  const { setUser } = useContext(USER_CONTEXT)
+  const { setIsAuth } = useContext(IsAuthContext)
+  const { setUser } = useContext(UserContext)
   const history = useHistory()
 
   return (

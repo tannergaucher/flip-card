@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 
-export default function FlipCard({ frontText, backText, cardId }) {
+export default function FlipCard({ frontText, backText }) {
   const [flipped, setFlipped] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,

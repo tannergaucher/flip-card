@@ -1,16 +1,16 @@
-import './index.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 import * as serviceWorker from './serviceWorker'
 
+import { App } from './components/elements'
 import {
   IsAuthProvider,
   MyCardsProvider,
   UserProvider,
 } from './components/context'
 
-import App from './components/app'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import './index.css'
 
 ReactDOM.render(
   <IsAuthProvider>

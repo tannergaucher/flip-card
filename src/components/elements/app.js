@@ -1,20 +1,12 @@
-import {
-  CardPage,
-  CreateCardPage,
-  EditCardPage,
-  IndexPage,
-  LoginPage,
-  SignupPage,
-} from './pages'
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import { Main, Navlinks, ScrollToTop } from './elements'
 import React, { useContext } from 'react'
+import { Link, BrowserRouter as Router } from 'react-router-dom'
 
-import { IS_AUTH_CONTEXT } from './context'
-import { Logout } from './auth'
+import { Logout } from '../auth'
+import { IsAuthContext } from '../context'
+import { Main, Navlinks, ScrollToTop } from '.'
 
 export default function App() {
-  const { isAuth } = useContext(IS_AUTH_CONTEXT)
+  const { isAuth } = useContext(IsAuthContext)
 
   return (
     <Router>

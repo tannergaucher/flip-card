@@ -1,6 +1,7 @@
-import { Navlink } from '../elements'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+
+import { Navlink } from '../elements'
 
 const AuthTabs = () => {
   const location = useLocation()

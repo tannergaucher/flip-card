@@ -1,7 +1,7 @@
+import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
 import { FlipCard } from '../card'
-import React from 'react'
 import { useCard } from '../hooks'
 
 export default function CardPage() {
